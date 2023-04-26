@@ -79,8 +79,6 @@ export default function Layout({ children }) {
   const [navigation, dispatch] = useReducer(reducer, initialState);
 
   const router = useRouter();
-  console.log(router.pathname);
-
   return (
     <div className="h-screen flex overflow-hidden bg-white ">
       <Transition.Root show={sidebarOpen} as={Fragment}>
