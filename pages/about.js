@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-const About = () => {
+export default function About() {
   return (
     <>
       <Head>
-        <title>Mainstack Dashboard</title>
-        <meta name="keywords" content="dashboard"></meta>
+        <title>Mainstack Dashboard | About</title>
+        <meta name="keywords" content="about"></meta>
       </Head>
       <div>
         <h1>About</h1>
@@ -13,6 +13,4 @@ const About = () => {
       </div>
     </>
   );
-};
-
-export default About;
+}
