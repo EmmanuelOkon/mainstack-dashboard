@@ -9,8 +9,8 @@ export default function Item5() {
       </Head>
       <>
         <div className="flex flex-col">
-          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="my-2 overflow-x-auto sm:mx-6 lg:mx-8">
+            <div className="py-2 align-middle inline-block min-w-full px-2">
               This is Item 5
             </div>
           </div>

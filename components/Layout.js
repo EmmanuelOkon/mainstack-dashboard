@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Fragment, useState, useReducer } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { InboxIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { RiDashboardLine } from "react-icons/ri";
 import {
   MdOutlinePeopleOutline,
@@ -15,6 +15,7 @@ import {
 } from "react-icons/md";
 import { AiOutlineHourglass } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
+import { TbCameraPlus } from "react-icons/tb";
 
 const initialState = [
   { name: "Dashboard", href: "/", icon: RiDashboardLine },
@@ -29,8 +30,12 @@ const initialState = [
     name: "OTHERS 1",
 
     children: [
-      { name: "Item 4", href: "/profile/item4", icon: InboxIcon },
-      { name: "Item 5", href: "/profile/item5", icon: MdDeleteOutline },
+      { name: "Item 4", href: "/profile/others-1/item4", icon: TbCameraPlus },
+      {
+        name: "Item 5",
+        href: "/profile/others-1/item5",
+        icon: MdDeleteOutline,
+      },
     ],
   },
   {
@@ -39,11 +44,15 @@ const initialState = [
     children: [
       {
         name: "Item 6",
-        href: "/profile/item6",
+        href: "/profile/others-2/item6",
         icon: MdOutlineSubscriptions,
       },
-      { name: "Item 7", href: "/profile/item7", icon: MdFilePresent },
-      { name: "Item 8", href: "/profile/item8", icon: MdOutlineAccessAlarm },
+      { name: "Item 7", href: "/profile/others-2/item7", icon: MdFilePresent },
+      {
+        name: "Item 8",
+        href: "/profile/item8",
+        icon: MdOutlineAccessAlarm,
+      },
     ],
   },
 ];
@@ -121,9 +130,9 @@ export default function Layout({ children }) {
                 </div>
               </Transition.Child>
               <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                <div className="flex-shrink-0 flex items-center px-4">
+                {/* <div className="flex-shrink-0 flex items-center px-4">
                   <Image src="/main.png" alt="Main" width={40} height={40} />
-                </div>
+                </div> */}
                 <nav className="mt-5 px-2 space-y-1">
                   {navigation.map((item) => {
                     if (item.children) {
@@ -246,7 +255,7 @@ export default function Layout({ children }) {
                                 <Link href={child.href}>
                                   <span
                                     className={classNames(
-                                      item.current
+                                      router.pathname === item.href
                                         ? "border-l-[#FF5403] border-l-[3px] text-[#FF5403] font- text-[20px]"
                                         : "text-[#4D5760] hover:bg-orange-100 hover:bg-opacity-",
                                       "group flex items-center px-2 py-[12px] text-sm font-bold pl-[54px] cursor-pointer"
@@ -255,7 +264,7 @@ export default function Layout({ children }) {
                                     {child.icon && (
                                       <child.icon
                                         className={classNames(
-                                          item.current
+                                          router.pathname === item.href
                                             ? "text-[#FF5403]"
                                             : "text-[#4D5760]",
                                           "mr-[12px] flex-shrink-0 h-6 w-6"
@@ -331,7 +340,10 @@ export default function Layout({ children }) {
         </div>
       </div>
       <div className="flex flex-col w-0 flex-1 overflow-hidden">
-        <div className="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
+        <div className="md:hidden flex items-center justify-between pl-1 pt-1 sm:pl-3 sm:pt-3 border-b">
+          <div className="flex items-center l-[54px] ">
+            <Image src="/main.png" alt="Main" width={40} height={40} />
+          </div>
           <button
             type="button"
             className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-[#131316]  focus:outline-none"
