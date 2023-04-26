@@ -84,7 +84,7 @@ export default function Home() {
         sources: response.data.top_sources,
       });
     });
-  }, []);
+  });
 
   useEffect(() => {
     if (appData.countries !== null) {
@@ -271,7 +271,7 @@ export default function Home() {
                   {appData.sources &&
                     appData.sources.map((data) => {
                       return (
-                        <div className="flex">
+                        <div key={data.percent} className="flex">
                           <span className="mr-3 capitalize">{data.source}</span>
                           <span>{data.percent}%</span>
                         </div>
