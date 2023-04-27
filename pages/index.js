@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import LineChart from "../components/LineChart.js";
 import DoughChart from "../components/DoughChart.js";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-// import { Chart } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import axios from "axios";
 import Image from "next/image.js";
-// import { topLocations } from "../components/Data.js";
 
 const filterButton = [
   { name: "1 Day" },

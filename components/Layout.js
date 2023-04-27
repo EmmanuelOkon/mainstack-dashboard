@@ -76,7 +76,7 @@ function classNames(...classes) {
 
 export default function Layout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [navigation, dispatch] = useReducer(reducer, initialState);
+  const [navigation] = useReducer(reducer, initialState);
 
   const router = useRouter();
   return (
